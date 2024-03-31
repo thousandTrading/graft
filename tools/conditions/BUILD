@@ -26,3 +26,12 @@ config_setting(
         "//tools/platforms/device:cpu",
     ],
 )
+
+config_setting(
+    name = "macos_arm_64_cpu",
+    constraint_values = [
+        "@platforms//os:macos",
+        "@platforms//cpu:arm64",
+        "//tools/platforms/device:cpu",
+    ],
+)

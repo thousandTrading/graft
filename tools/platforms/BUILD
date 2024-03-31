@@ -24,3 +24,12 @@ platform(
         "//tools/platforms/device:cpu",
     ],
 )
+
+platform(
+    name = "macos_arm_64_cpu",
+    constraint_values = [
+        "@platforms//os:macos",
+        "@platforms//cpu:arm64",
+        "//tools/platforms/device:cpu",
+    ],
+)

@@ -24,10 +24,9 @@ use_repo(
     "libtensorflow_linux_x86_64_cpu",
     "libtensorflow_linux_x86_64_gpu",
     "libtensorflow_macos_x86_64_cpu",
+    "libtensorflow_macos_arm_64_cpu",
     "libtensorflow_other_build",
-    "libtensorflow_proto_linux_x86_64_cpu",
-    "libtensorflow_proto_linux_x86_64_gpu",
-    "libtensorflow_proto_macos_x86_64_cpu",
+    "libtensorflow_proto",
     "tensorflow_base_api_def",
     "tensorflow_go",
 )

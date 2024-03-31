@@ -26,6 +26,13 @@ def tf_repositories(ctx):
         inner_archive = "lib_package/libtensorflow-cpu-darwin-x86_64.tar.gz",
     )
 
+    http_embedded_archive(
+        name = "libtensorflow_macos_arm_64_cpu",
+        build_file = "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow:libtensorflow.BUILD",
+        urls = ["https://storage.googleapis.com/libtensorflow-nightly/prod/tensorflow/release/macos/latest/macos_cpu_libtensorflow_binaries.tar.gz"],
+        inner_archive = "lib_package/libtensorflow-cpu-darwin-arm64.tar.gz",
+    )
+
     http_archive(
         name = "libtensorflow_other_build",
         build_file = "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow:libtensorflow.BUILD",
@@ -37,36 +44,15 @@ def tf_repositories(ctx):
     ###########################################################################
 
     http_archive(
-        name = "libtensorflow_proto_linux_x86_64_cpu",
+        name = "libtensorflow_proto",
         build_file = "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto.BUILD",
         patch_args = ["-p1"],
         patches = [
             "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto.patch",
             "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto_tsl.patch",
         ],
-        urls = ["https://storage.googleapis.com/libtensorflow-nightly/latest/libtensorflow_proto.zip"],
-    )
-
-    http_archive(
-        name = "libtensorflow_proto_linux_x86_64_gpu",
-        build_file = "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto.BUILD",
-        patch_args = ["-p1"],
-        patches = [
-            "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto.patch",
-            "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto_tsl.patch",
-        ],
-        urls = ["https://storage.googleapis.com/libtensorflow-nightly/latest/libtensorflow_proto.zip"],
-    )
-
-    http_archive(
-        name = "libtensorflow_proto_macos_x86_64_cpu",
-        build_file = "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto.BUILD",
-        patch_args = ["-p1"],
-        patches = [
-            "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto.patch",
-            "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto_tsl.patch",
-        ],
-        urls = ["https://storage.googleapis.com/libtensorflow-nightly/latest/libtensorflow_proto.zip"],
+        strip_prefix = "libtensorflow-proto-nightly",
+        urls = ["https://github.com/wamuir/libtensorflow-proto/archive/refs/heads/nightly.tar.gz"],
     )
 
     ###########################################################################
