@@ -10,8 +10,8 @@ build:ci --verbose_failures
 build:ci --worker_sandboxing
 common --noenable_bzlmod
 common:ci --color=no
-common:ci --local_cpu_resources=2
-common:ci --local_ram_resources=4000
+common:ci --local_resources=cpu=2
+common:ci --local_resources=ram=4000
 common:ci --worker_max_instances=2
 test:ci --test_output=errors
 test:ci --test_strategy=standalone
