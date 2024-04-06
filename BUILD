@@ -1,4 +1,4 @@
-load("@bazel_gazelle//:def.bzl", "gazelle")
+load("@gazelle//:def.bzl", "gazelle")
 
 package(
     default_visibility = ["//visibility:private"],
@@ -11,13 +11,3 @@ package(
 # gazelle:exclude tools/lib_package
 # gazelle:go_naming_convention import_alias
 gazelle(name = "gazelle")
-
-gazelle(
-    name = "gazelle-update-repos",
-    args = [
-        "-from_file=go.mod",
-        "-to_macro=tensorflow/deps.bzl%_go_dependencies",
-        "-prune",
-    ],
-    command = "update-repos",
-)

@@ -5,13 +5,25 @@ module(
 
 # Dependencies
 bazel_dep(
-    name = "rules_go",
-    version = "0.46.0",
-    repo_name = "io_bazel_rules_go",
+    name = "gazelle",
+    version = "0.36.0",
 )
 bazel_dep(
     name = "platforms",
     version = "0.0.7",
+)
+bazel_dep(
+    name = "protobuf",
+    version = "21.7",
+    repo_name = "com_google_protobuf",
+)
+bazel_dep(
+    name = "rules_go",
+    version = "0.46.0",
+)
+bazel_dep(
+    name = "rules_pkg",
+    version = "0.9.1",
 )
 
 # Extensions
@@ -23,8 +35,8 @@ use_repo(
     tf_repos,
     "libtensorflow_linux_x86_64_cpu",
     "libtensorflow_linux_x86_64_gpu",
-    "libtensorflow_macos_x86_64_cpu",
     "libtensorflow_macos_arm_64_cpu",
+    "libtensorflow_macos_x86_64_cpu",
     "libtensorflow_other_build",
     "libtensorflow_proto",
     "tensorflow_base_api_def",
@@ -35,40 +47,17 @@ libtensorflow_defaults = use_repo_rule(
     "//third_party/org_tensorflow:defaults.bzl",
     "libtensorflow_defaults",
 )
-
 libtensorflow_defaults(name = "libtensorflow_defaults")
 
-go_deps = use_extension("//tensorflow:deps.bzl", "go_dependencies")
+go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")
+go_deps.from_file(go_mod = "//:go.mod")
+
 use_repo(go_deps, "org_golang_google_protobuf")
 
 # Dev dependencies
 bazel_dep(
     name = "bazel_skylib",
     version = "1.5.0",
-    dev_dependency = True,
-)
-bazel_dep(
-    name = "gazelle",
-    version = "0.35.0",
-    dev_dependency = True,
-    repo_name = "bazel_gazelle",
-)
-single_version_override(
-    module_name = "gazelle",
-    patch_strip = 1,
-    patches = ["//third_party/com_github_bazelbuild_bazel-gazelle:bazel-gazelle.patch"],
-    version = "0.35.0",
-)
-
-bazel_dep(
-    name = "protobuf",
-    version = "21.7",
-    dev_dependency = True,
-    repo_name = "com_google_protobuf",
-)
-bazel_dep(
-    name = "rules_pkg",
-    version = "0.9.1",
     dev_dependency = True,
 )
 bazel_dep(

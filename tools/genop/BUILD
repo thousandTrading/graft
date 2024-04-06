@@ -1,7 +1,7 @@
 # Description:
 # Generation of Go source files for TensorFlow ops.
 
-load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
 
 package(default_visibility = ["//visibility:private"])
 
