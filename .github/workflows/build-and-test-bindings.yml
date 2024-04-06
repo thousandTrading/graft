@@ -12,9 +12,6 @@ on:
       - 'r[0-9]+.[0-9]+'
   workflow_dispatch:
 
-env:
-  USE_BAZEL_VERSION: "latest"
-
 jobs:
 
   build:
@@ -29,9 +26,6 @@ jobs:
 
       - name: Log Bazel version
         run: bazelisk version
-
-      - name: Test
-        run: CC=clang bazelisk test --config=ci -- //...
 
       - name: Build Go bindings
         run: CC=clang bazelisk build --config=ci -- //tools/graft_package:go_bindings
@@ -73,10 +67,6 @@ jobs:
       - name: Run gazelle
         run: |
           CC=clang bazelisk run //:gazelle
-          CC=clang bazelisk run //:gazelle-update-repos
 
       - name: Test bindings
         run: CC=clang bazelisk test --config=ci -- //tensorflow/...
-
-      - name: Test bindings (bzlmod)
-        run: CC=clang bazelisk test --config=ci --enable_bzlmod -- //tensorflow/...

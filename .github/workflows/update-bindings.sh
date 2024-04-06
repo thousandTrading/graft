@@ -10,4 +10,3 @@ cd "$(git rev-parse --show-toplevel)" \
      -f bazel-bin/tools/graft_package/go_bindings.tar
 
 bazelisk run //:gazelle
-bazelisk run //:gazelle-update-repos
