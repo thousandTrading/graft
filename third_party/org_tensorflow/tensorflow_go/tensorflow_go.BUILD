@@ -18,5 +18,5 @@ GO_SOURCE = glob(
 filegroup(
     name = "go_source",
     srcs = GO_SOURCE,
-    visibility = ["@com_github_wamuir_graft//third_party/org_tensorflow:__pkg__"],
+    visibility = ["@graft//third_party/org_tensorflow:__pkg__"],
 )

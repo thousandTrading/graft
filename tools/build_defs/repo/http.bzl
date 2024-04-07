@@ -22,7 +22,7 @@ To use this rule, load it in your `WORKSPACE` file as follows:
 
 ```python
 load(
-    "@com_github_wamuir_graft//tools/build_defs/repo:http.bzl",
+    "@graft//tools/build_defs/repo:http.bzl",
     "http_embedded_archive",
 )
 ```
@@ -327,7 +327,7 @@ Examples:
 
   ```python
   load(
-      "@com_github_wamuir_graft//tools/build_defs/repo:http.bzl",
+      "@graft//tools/build_defs/repo:http.bzl",
       "http_embedded_archive",
    )
 

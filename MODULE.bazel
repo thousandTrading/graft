@@ -1,5 +1,5 @@
 module(
-    name = "com_github_wamuir_graft",
+    name = "graft",
     version = "0.0.0",
     compatibility_level = 0,
 )

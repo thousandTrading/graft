@@ -49,28 +49,28 @@ cat <<EOF >> "${WORKSPACE}"
 EOF
 
 http_archive "libtensorflow_linux_x86_64_cpu" \
-    "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow:libtensorflow.BUILD" \
+    "@graft//third_party/org_tensorflow/libtensorflow:libtensorflow.BUILD" \
     "-p1" \
     "[]" \
     "" \
     "https://storage.googleapis.com/tensorflow/versions/${TF_VERSION}/libtensorflow-cpu-linux-x86_64.tar.gz"
 
 http_archive "libtensorflow_linux_x86_64_gpu" \
-    "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow:libtensorflow.BUILD" \
+    "@graft//third_party/org_tensorflow/libtensorflow:libtensorflow.BUILD" \
     "-p1" \
     "[]" \
     "" \
     "https://storage.googleapis.com/tensorflow/versions/${TF_VERSION}/libtensorflow-gpu-linux-x86_64.tar.gz"
 
 http_archive "libtensorflow_macos_x86_64_cpu" \
-    "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow:libtensorflow.BUILD" \
+    "@graft//third_party/org_tensorflow/libtensorflow:libtensorflow.BUILD" \
     "-p1" \
     "[]" \
     "" \
     "https://storage.googleapis.com/tensorflow/versions/${TF_VERSION}/libtensorflow-cpu-darwin-x86_64.tar.gz"
 
 http_archive "libtensorflow_macos_arm_64_cpu" \
-    "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow:libtensorflow.BUILD" \
+    "@graft//third_party/org_tensorflow/libtensorflow:libtensorflow.BUILD" \
     "-p1" \
     "[]" \
     "" \
@@ -80,7 +80,7 @@ cat <<EOF >> "${WORKSPACE}"
 
     http_archive(
         name = "libtensorflow_other_build",
-        build_file = "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow:libtensorflow.BUILD",
+        build_file = "@graft//third_party/org_tensorflow/libtensorflow:libtensorflow.BUILD",
         urls = [LIBTENSORFLOW_PKG_URL],
     )
 
@@ -90,11 +90,11 @@ cat <<EOF >> "${WORKSPACE}"
 EOF
 
 http_archive "libtensorflow_proto" \
-    "@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto.BUILD" \
+    "@graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto.BUILD" \
     "-p1" \
     "[
-            \"@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto.patch\",
-            \"@com_github_wamuir_graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto_tsl.patch\",
+            \"@graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto.patch\",
+            \"@graft//third_party/org_tensorflow/libtensorflow_proto:libtensorflow_proto_tsl.patch\",
         ]" \
     "libtensorflow-proto-${TF_VERSION}" \
     "https://github.com/wamuir/libtensorflow-proto/archive/refs/tags/v${TF_VERSION}.tar.gz"
@@ -107,7 +107,7 @@ cat <<EOF >> "${WORKSPACE}"
 EOF
 
 http_archive "tensorflow_base_api_def" \
-    "@com_github_wamuir_graft//third_party/org_tensorflow/tensorflow_base_api_def:tensorflow_base_api_def.BUILD" \
+    "@graft//third_party/org_tensorflow/tensorflow_base_api_def:tensorflow_base_api_def.BUILD" \
     "-p1" \
     "[]" \
     "tensorflow-${TF_VERSION}/tensorflow/core/api_def/base_api" \
@@ -121,10 +121,10 @@ cat <<EOF >> "${WORKSPACE}"
 EOF
 
 http_archive "tensorflow_go" \
-    "@com_github_wamuir_graft//third_party/org_tensorflow/tensorflow_go:tensorflow_go.BUILD" \
+    "@graft//third_party/org_tensorflow/tensorflow_go:tensorflow_go.BUILD" \
     "-p1" \
     "[
-            \"@com_github_wamuir_graft//third_party/org_tensorflow/tensorflow_go:tensorflow_go_op.patch\",
+            \"@graft//third_party/org_tensorflow/tensorflow_go:tensorflow_go_op.patch\",
         ]" \
     "tensorflow-${TF_VERSION}/tensorflow/go" \
     "https://github.com/tensorflow/tensorflow/archive/refs/tags/v${TF_VERSION}.tar.gz"
