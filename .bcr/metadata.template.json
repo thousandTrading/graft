@@ -1,0 +1,15 @@
+{
+  "homepage": "https://github.com/wamuir/graft",
+  "maintainers": [
+    {
+      "name": "William Muir",
+      "email": "wamuir@gmail.com",
+      "github": "wamuir"
+    }
+  ],
+  "repository": [
+    "github:wamuir/graft"
+  ],
+  "versions": [],
+  "yanked_versions": {}
+}

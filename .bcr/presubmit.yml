@@ -1,0 +1,10 @@
+matrix:
+  platform: ["debian10", "debian11", "macos", "macos_arm64", "ubuntu2004", "ubuntu2204"]
+  bazel: [6.x, 7.x, rolling]
+tasks:
+  run_tests:
+    name: "Run test module"
+    platform: ${{ platform }}
+    bazel: ${{ bazel }}
+    test_targets:
+      - "@graft//tensorflow/..."
